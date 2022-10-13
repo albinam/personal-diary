@@ -1,0 +1,40 @@
+@import "./src/assets/styles/variables";
+
+.sort-bar {
+  border: 2px $--c-main solid;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0 8px 0;
+  margin: 0 64px 0 64px;
+
+  &__container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 32px;
+  }
+
+  &__label {
+    font-weight: 300;
+    color: $--c-text;
+    font-size: 0.8rem;
+  }
+
+  &__icons {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__icon {
+    height: 20px;
+    padding: 8px;
+    border-radius: 8px;
+
+    &:active{
+      background-color: #828486;
+    }
+  }
+}

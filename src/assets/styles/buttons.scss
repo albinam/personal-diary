@@ -1,0 +1,11 @@
+@import "./src/assets/styles/variables";
+
+.button-clear {
+  height: 36px;
+  width: 96px;
+  margin-left: 16px;
+  color: $--c-text;
+  border-radius: 16px;
+  border: 1px $--c-button solid;
+  background-color: $--c-button;
+}

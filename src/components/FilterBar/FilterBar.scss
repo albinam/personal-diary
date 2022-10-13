@@ -1,0 +1,47 @@
+@import "./src/assets/styles/variables";
+
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 64px;
+
+
+  &__search {
+    border: 2px $--c-main solid;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    padding: 8px 0 8px 0;
+
+    &__icon {
+      height: 32px;
+      margin-left: 32px;
+    }
+
+    &__input {
+      margin-left: 8px;
+      height: 32px;
+      border: 2px $--c-main solid;
+      border-radius: 16px;
+      padding-left: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      color: $--c-text;
+      font-size: 0.8rem;
+    }
+
+    &__input:focus-visible {
+      outline: none;
+    }
+
+    &__button {
+      background-color: $--c-main;
+      color: $--c-text-secondary;
+      border-radius: 16px;
+      border: 1px #89C7A9 solid;
+      width: 96px;
+      margin-left: 32px;
+      height: 36px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "./src/assets/styles/variables";
+
+.header {
+    top: 0;
+    width: 100%;
+    background: $--c-secondary;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.header__text {
+    padding-top: 16px;
+    color: $--c-text;
+    text-align: center;
+}
+
+.header__title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+}
+
+.header__date {
+    padding: 8px 0 16px 0;
+    font-weight: 400;
+}
