@@ -1,0 +1,11 @@
+@import "./src/assets/styles/variables";
+
+.record {
+  display: flex;
+  flex-direction: column;
+  background-color: $--c-button;
+  justify-content: space-between;
+  border-radius: 16px;
+  margin: 16px 128px;
+
+}

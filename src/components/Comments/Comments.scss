@@ -1,0 +1,39 @@
+@import "./src/assets/styles/variables";
+.record__comments {
+  background-color: $--c-text-secondary;
+  border: 2px solid $--c-button;
+  border-radius: 16px;
+  padding: 16px 32px;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+
+    &__icon-hide {
+      height: 16px;
+      transform: rotate(270deg);
+      cursor: pointer;
+    }
+
+    &__icon-reveal {
+      height: 16px;
+      transform: rotate(90deg);
+      cursor: pointer;
+    }
+
+
+    &__button {
+      border: none;
+      color: $--c-main;
+      font-weight: bold;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+}

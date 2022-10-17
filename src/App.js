@@ -1,10 +1,14 @@
 import './App.scss';
 import RecordsList from "./pages/RecordsList/RecordsList";
+import {Provider} from "react-redux";
+import store from "./redux/store";
 
 function App() {
     return (
         <div className="App">
-            <RecordsList/>
+            <Provider store={store}>
+                <RecordsList/>
+            </Provider>
         </div>
     );
 }

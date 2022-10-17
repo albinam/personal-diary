@@ -1,0 +1,85 @@
+@import "./src/assets/styles/variables";
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  background-color: $--c-button;
+  border-radius: 16px;
+  margin: 16px 0 16px 0;
+  padding: 16px;
+
+  &__label:not(:first-child) {
+    margin-left: 8px;
+  }
+
+  &__error {
+    color: darkred;
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  &__personal-info {
+    display: flex;
+    flex-direction: row;
+
+    &__line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__input {
+      border: 1px solid $--c-main;
+      border-radius: 8px;
+      margin-left: 4px;
+      padding-left: 8px;
+      background-color: $--c-text-secondary;
+      height: 18px;
+
+      &-file {
+        margin-left: 4px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+
+    input::file-selector-button {
+      color: $--c-text-secondary;
+      background-color: $--c-main;
+      border: 1px solid $--c-main;
+      border-radius: 16px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    &__input:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__text {
+    border-radius: 8px;
+    margin-top: 4px;
+    border: 1px solid $--c-main;
+    padding-left: 8px;
+  }
+
+  &__text:focus-visible {
+    outline: none;
+  }
+
+  &__label-text {
+    margin-top: 16px;
+  }
+
+  &__button {
+    background-color: $--c-main;
+    color: $--c-text-secondary;
+    border-radius: 16px;
+    border: 1px $--c-main solid;
+    width: 96px;
+    height: 36px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+}

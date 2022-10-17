@@ -7,7 +7,7 @@
   flex-direction: row;
   align-items: center;
   padding: 8px 0 8px 0;
-  margin: 0 64px 0 64px;
+  margin: 0 128px;
 
   &__container{
     display: flex;
@@ -19,7 +19,6 @@
   &__label {
     font-weight: 300;
     color: $--c-text;
-    font-size: 0.8rem;
   }
 
   &__icons {

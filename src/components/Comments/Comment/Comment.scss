@@ -1,0 +1,44 @@
+@import "../../../assets/styles/variables";
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+  border-bottom: 2px solid $--c-button;
+  padding-bottom: 4px;
+
+  &__avatar {
+    height: 64px;
+    width: 64px;
+    border-radius: 16px;
+    border: 2px solid $--c-main;
+    object-fit: cover;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    max-width: 650px;
+  }
+
+  &__user-name {
+    font-weight: bold;
+  }
+
+  &__user-role {
+    color: $--c-secondary;
+  }
+
+  &__body {
+    overflow-wrap: break-word;
+    margin-top: 8px;
+  }
+
+  &__delete {
+    height: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    padding-right: 16px;
+  }
+}
