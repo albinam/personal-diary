@@ -1,5 +1,5 @@
 import axios from "axios";
-import {setRecords, setRecordsLoadingStatus} from "../redux/actions/actions";
+import {setAlert, setRecords, setRecordsLoadingStatus} from "../redux/actions/actions";
 
 const myAxios = axios.create({
     baseURL: 'https://6347bd6ddb76843976b11534.mockapi.io/api/v1/',
@@ -19,16 +19,38 @@ export const getRecords = () => {
     }
 }
 
-export const putComment =  async (recordId, data) => {
-    const result = await myAxios.post(`/record/${recordId}/comment`, data);
-    if (result.status===201){
-        return true;
-    }
-    else{
-        alert("Ошибочка")
+export const putComment = (recordId, data) => {
+    return async (dispatch) => {
+        const result = await myAxios.post(`/record/${recordId}/comment`, data);
+        console.log(result)
+        if (result.status === 201) {
+            dispatch(getRecords());
+            dispatch(setAlert({
+                message: 'Комментарий добавлен',
+                type: "SUCCESS",
+            }));
+        } else {
+            dispatch(setAlert({
+                message: 'Что-то пошло не так',
+                type: "ERROR",
+            }));
+        }
     }
 }
-export const deleteComment =  async (recordId, id) => {
-    const result = await myAxios.delete(`/record/${recordId}/comment/${id}`);
-   console.log(result)
+export const deleteComment = (recordId, id) => {
+    return async (dispatch) => {
+        const result = await myAxios.delete(`/record/${recordId}/comment/${id}`);
+        if (result.status === 200) {
+            dispatch(getRecords());
+            dispatch(setAlert({
+                message: 'Комментарий удален',
+                type: "SUCCESS"
+            }));
+        } else {
+            dispatch(setAlert({
+                message: 'Что-то пошло не так',
+                type: "ERROR"
+            }));
+        }
+   }
 }

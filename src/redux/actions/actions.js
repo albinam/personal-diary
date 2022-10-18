@@ -18,3 +18,22 @@ export function setRecordsLoadingStatus(status) {
         payload: status
     }
 }
+
+export function setAlert(alert) {
+    return {
+        type: 'SET_ALERT',
+        payload:alert
+    }
+}
+
+export function closeAlert() {
+    return {
+        type: 'SET_CLOSE_ALERT'
+    }
+}
+export function setAlertResponse(response) {
+    return {
+        type: 'SET_ALERT_RESPONSE',
+        payload:response
+    }
+}

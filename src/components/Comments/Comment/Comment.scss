@@ -3,9 +3,20 @@
 .comment {
   display: flex;
   flex-direction: row;
-  margin-bottom: 8px;
   border-bottom: 2px solid $--c-button;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-radius: 16px;
+
+  &__author{
+    background-color: #52B78860;
+    display: flex;
+    border-radius: 16px;
+    flex-direction: row;
+    border-bottom: 2px solid $--c-button;
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
 
   &__avatar {
     height: 64px;
@@ -13,6 +24,7 @@
     border-radius: 16px;
     border: 2px solid $--c-main;
     object-fit: cover;
+    background-color: $--c-text-secondary;
   }
 
   &__text {

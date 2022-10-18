@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Header.scss";
 import moment from "moment";
+import Alert from "../Alert/Alert";
 
 function Header() {
 
@@ -10,6 +11,7 @@ function Header() {
                 <p className="header__title">Личный дневник</p>
                 <p className="header__date">{moment().format("DD/MM/YYYY")}</p>
             </div>
+            <Alert/>
         </header>
     );
 
