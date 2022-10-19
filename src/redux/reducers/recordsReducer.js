@@ -6,7 +6,10 @@ const initialState = {
     currentPage: 1,
     totalRecordsCount:0,
     titleSearchValue:"",
-    dateSearchValue:"",
+    dateSearchValue:{
+        dateFrom:"",
+        dateTo:""
+    },
     sortByDate:"",
     sortByTitle:""
 }

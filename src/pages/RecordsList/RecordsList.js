@@ -9,6 +9,7 @@ import {getRecords} from "../../utils/api";
 import Pagination from "../../components/Pagination/Pagination";
 import {setCurrentPage, setRecordsLoadingStatus} from "../../redux/actions/actions";
 import Loader from "../../components/Loader/Loader";
+import moment from "moment";
 
 function RecordsList() {
     const dispatch = useDispatch();

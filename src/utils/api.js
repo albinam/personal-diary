@@ -12,8 +12,8 @@ export const getRecords = (page,limit,title,date,sortByTitle,sortByDate) => {
         setRecordsLoadingStatus(true);
         setRecords(null);
         let url=`/record?_embed=comments&_page=${page}&_limit=${limit}`;
-        if(date){
-            url=url+`&q=${date}`;
+        if(date.dateFrom && date.dateTo){
+            url=url+`&date_gte=${date.dateFrom}&date_lte=${date.dateTo}`;
         }
         if(title){
             url=url+`&title=${title}`;

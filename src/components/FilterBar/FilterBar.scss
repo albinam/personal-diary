@@ -8,6 +8,7 @@
   flex-direction: row;
   padding: 8px 0 8px 0;
   margin: 16px 128px;
+  align-items: center;
 
   &__icon {
     height: 32px;
@@ -29,6 +30,12 @@
     outline: none;
   }
 
+  &__date-separator {
+    text-align: center;
+    margin-left: 8px;
+    font-weight: 700;
+  }
+
   &__button {
     background-color: $--c-main;
     color: $--c-text-secondary;
@@ -38,5 +45,12 @@
     margin-left: 32px;
     height: 36px;
     cursor: pointer;
+  }
+
+  &__error {
+    color: darkred;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-left: 8px;
   }
 }
