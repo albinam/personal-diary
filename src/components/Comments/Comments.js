@@ -32,7 +32,7 @@ function Comments({props}) {
                 <AddComment props={props}/>
                 {props?.comments.sort((comment1, comment2) => new Date(comment1.date ).getTime()- new Date(comment2.date ).getTime()).reverse().map(comment => {
                     return (
-                        <Comment props={comment} key={comment.id} recordId={props?.id}/>
+                        <Comment props={comment} key={comment.id}/>
                     )
                 })} </> : <></>}
         </div>

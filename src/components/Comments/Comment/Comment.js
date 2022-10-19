@@ -7,24 +7,25 @@ import {closeAlert, setAlert} from "../../../redux/actions/actions";
 import {useEffect} from "react";
 import moment from "moment";
 
-function Comment({props,recordId}) {
+function Comment({props}) {
     const dispatch = useDispatch();
     const alert = useSelector(state => state.alert);
     const [deletionId,setDeletionId]=useState();
-    const user=useSelector(state=> state.user)
+    const user=useSelector(state=> state.user);
 
     function handleClickDelete (id){
+        setDeletionId(id);
         dispatch(setAlert({
             message: 'Удалить комментарий?',
             type: "QUESTION",
             isShown:true
         }));
-        setDeletionId(id);
     }
 
     useEffect(() => {
         if(alert.response==="yes" && alert.type==="QUESTION") {
-            dispatch(deleteComment(recordId, deletionId));
+            console.log(deletionId)
+            dispatch(deleteComment(deletionId));
             dispatch(closeAlert());
             setDeletionId(null);
         }

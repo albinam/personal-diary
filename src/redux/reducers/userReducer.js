@@ -1,5 +1,5 @@
 const initialState = {
-    fullName: "Мухаметова Альбина Рамилевна",
+    fullName: "Мухаметова А. Р.",
     role: "Автор",
     avatar: "https://dl.dropboxusercontent.com/s/efmsmip0tn13qag/cat.png",
     id:0

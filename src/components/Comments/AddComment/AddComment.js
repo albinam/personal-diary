@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 function AddComment({props}) {
     const dispatch = useDispatch();
-    const user = useSelector(state=>state.user)
+    const user = useSelector(state=>state.user);
 
     const formik = useFormik({
         initialValues: {
@@ -33,7 +33,7 @@ function AddComment({props}) {
                 avatar: user.avatar,
                 userId:user.id
             }
-            dispatch(putComment(props.id, comment));
+            dispatch(putComment(comment));
         }
     })
     return (

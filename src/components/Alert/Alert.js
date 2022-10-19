@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {closeAlert, setAlert, setAlertResponse} from "../../redux/actions/actions";
+import {closeAlert, setAlertResponse} from "../../redux/actions/actions";
 import CloseIcon from "../../assets/images/cancel.svg";
 import "./Alert.scss";
 

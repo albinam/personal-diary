@@ -1,26 +1,42 @@
 @import "./src/assets/styles/variables";
 
 .header {
-    top: 0;
-    width: 100%;
-    background: $--c-button;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-}
+  top: 0;
+  width: 100%;
+  background: $--c-button;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-.header__text {
+  &__text {
     padding-top: 16px;
     color: $--c-text;
     text-align: center;
-}
+  }
 
-.header__title {
+  &__title {
     font-weight: bold;
     font-size: 1.5rem;
     letter-spacing: 0.05rem;
-}
+  }
 
-.header__date {
+  &__date {
     padding: 8px 0 16px 0;
     font-weight: 400;
+  }
+
+  &__user {
+    margin: 8px 8px 8px 0;
+    position: absolute;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__photo {
+      height: 48px;
+    }
+  }
 }
