@@ -17,6 +17,7 @@
 
   &__input {
     margin-left: 8px;
+    margin-right: 8px;
     height: 32px;
     border: 2px $--c-main solid;
     border-radius: 16px;
@@ -32,19 +33,7 @@
 
   &__date-separator {
     text-align: center;
-    margin-left: 8px;
     font-weight: 700;
-  }
-
-  &__button {
-    background-color: $--c-main;
-    color: $--c-text-secondary;
-    border-radius: 16px;
-    border: 1px $--c-main solid;
-    width: 96px;
-    margin-left: 32px;
-    height: 36px;
-    cursor: pointer;
   }
 
   &__error {

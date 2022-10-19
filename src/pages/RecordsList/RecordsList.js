@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect} from 'react';
 import Header from "../../components/Header/Header";
 import "./RecordsList.scss";
 import FilterBar from "../../components/FilterBar/FilterBar";
@@ -9,7 +9,6 @@ import {getRecords} from "../../utils/api";
 import Pagination from "../../components/Pagination/Pagination";
 import {setCurrentPage, setRecordsLoadingStatus} from "../../redux/actions/actions";
 import Loader from "../../components/Loader/Loader";
-import moment from "moment";
 
 function RecordsList() {
     const dispatch = useDispatch();

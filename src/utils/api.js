@@ -40,7 +40,7 @@ export const getRecords = (page,limit,title,date,sortByTitle,sortByDate) => {
     }
 }
 
-export const putComment = (data) => {
+export const postComment = (data) => {
     return async (dispatch) => {
         const result = await myAxios.post(`/comments`, data);
         console.log(result)
@@ -59,6 +59,26 @@ export const putComment = (data) => {
         }
     }
 }
+
+export const postRecord = (data) => {
+    return async (dispatch) => {
+        const result = await myAxios.post(`/record`, data);
+        console.log(result)
+        if (result.status === 201) {
+            dispatch(setAlert({
+                message: 'Запись добавлена',
+                type: "SUCCESS",
+            }));
+            dispatch(setRecordsLoadingStatus(true));
+        } else {
+            dispatch(setAlert({
+                message: 'Что-то пошло не так',
+                type: "ERROR",
+            }));
+        }
+    }
+}
+
 export const deleteComment = (id) => {
     return async (dispatch) => {
         const result = await myAxios.delete(`/comments/${id}`);

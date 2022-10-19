@@ -1,0 +1,33 @@
+@import "./src/assets/styles/variables";
+
+.record-creation__header{
+  display: flex;
+  flex-direction: row;
+  margin: 32px 128px;
+  justify-content: center;
+
+  &__back{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    left: 128px;
+    text-decoration: none;
+    color: $--c-text;
+
+    &__icon{
+      height: 18px;
+      transform: rotate(180deg);
+      margin-right: 8px;
+    }
+    &__label{
+      font-size: 1.4rem;
+    }
+
+  }
+  &__title{
+    font-size: 1.4rem;
+    color: $--c-main;
+    font-weight: 700;
+  }
+}

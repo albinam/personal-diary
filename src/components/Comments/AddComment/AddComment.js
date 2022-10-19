@@ -2,7 +2,7 @@ import React from 'react';
 import "./AddComment.scss";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
-import {putComment} from "../../../utils/api";
+import {postComment} from "../../../utils/api";
 import moment from "moment";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -33,7 +33,7 @@ function AddComment({props}) {
                 avatar: user.avatar,
                 userId:user.id
             }
-            dispatch(putComment(comment));
+            dispatch(postComment(comment));
         }
     })
     return (
@@ -50,7 +50,7 @@ function AddComment({props}) {
             {formik.touched.text && formik.errors.text && (
                 <div className="comment-form__error">{formik.errors.text}</div>
             )}
-            <button className="comment-form__button" type="submit">Добавить</button>
+            <button className="button-main" type="submit">Добавить</button>
         </form>
     );
 }

@@ -1,43 +1,45 @@
 @import "./src/assets/styles/variables";
 
-.comment-form {
+.add-record {
   display: flex;
   flex-direction: column;
-  background-color: $--c-button;
-  border-radius: 16px;
-  margin: 16px 0 16px 0;
-  padding: 16px;
 
-  &__label:not(:first-child) {
-    margin-left: 8px;
-  }
-
-  &__error {
-    color: darkred;
+  &__header{
     font-weight: 700;
-    font-size: 0.8rem;
+    color: $--c-main;
+    font-size: 1.4rem;
+    margin: 16px auto;
   }
-
-  &__personal-info {
+  &__form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: $--c-button;
+    border-radius: 16px;
+    padding: 16px;
+    margin: 16px 128px;
 
-    &__line {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+
+    &__error {
+      color: darkred;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    &__label {
+      margin-top: 16px;
     }
 
     &__input {
       border: 1px solid $--c-main;
       border-radius: 8px;
-      margin-left: 4px;
-      padding-left: 8px;
       background-color: $--c-text-secondary;
-      height: 18px;
+      height: 24px;
+      margin-top: 4px;
+      padding-left: 8px;
+      width: calc(100% - 8px);
 
-      &-file {
-        margin-left: 4px;
+      &-image {
+        margin-top: 4px;
         height: 20px;
         cursor: pointer;
         font-family: 'Montserrat', sans-serif;
@@ -56,31 +58,32 @@
     &__input:focus-visible {
       outline: none;
     }
-  }
 
-  &__text {
-    border-radius: 8px;
-    margin-top: 4px;
-    border: 1px solid $--c-main;
-    padding-left: 8px;
-  }
 
-  &__text:focus-visible {
-    outline: none;
-  }
+    &__text {
+      border-radius: 8px;
+      margin-top: 4px;
+      border: 1px solid $--c-main;
+      padding-left: 8px;
+    }
 
-  &__label-text {
-    margin-top: 16px;
-  }
+    &__text:focus-visible {
+      outline: none;
+    }
 
-  &__button {
-    background-color: $--c-main;
-    color: $--c-text-secondary;
-    border-radius: 16px;
-    border: 1px $--c-main solid;
-    width: 96px;
-    height: 36px;
-    margin-top: 8px;
-    cursor: pointer;
+    &__label-text {
+      margin-top: 16px;
+    }
+
+    &__button {
+      background-color: $--c-main;
+      color: $--c-text-secondary;
+      border-radius: 16px;
+      border: 1px $--c-main solid;
+      width: 96px;
+      height: 36px;
+      cursor: pointer;
+      margin-top: 16px;
+    }
   }
 }

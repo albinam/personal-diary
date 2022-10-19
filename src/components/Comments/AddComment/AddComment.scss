@@ -20,20 +20,10 @@
     margin-top: 4px;
     border: 1px solid $--c-main;
     padding-left: 8px;
+    margin-bottom: 8px;
   }
 
   &__text:focus-visible {
     outline: none;
-  }
-
-  &__button {
-    background-color: $--c-main;
-    color: $--c-text-secondary;
-    border-radius: 16px;
-    border: 1px $--c-main solid;
-    width: 96px;
-    height: 36px;
-    margin-top: 8px;
-    cursor: pointer;
   }
 }

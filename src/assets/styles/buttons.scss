@@ -10,3 +10,13 @@
   background-color: $--c-button;
   cursor: pointer;
 }
+.button-main {
+  background-color: $--c-main;
+  color: $--c-text-secondary;
+  border-radius: 16px;
+  border: 1px $--c-main solid;
+  padding: 8px 16px;
+  height: 36px;
+  cursor: pointer;
+  width: fit-content;
+}
