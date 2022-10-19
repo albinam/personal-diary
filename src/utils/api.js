@@ -63,7 +63,6 @@ export const postComment = (data) => {
 export const postRecord = (data) => {
     return async (dispatch) => {
         const result = await myAxios.post(`/record`, data);
-        console.log(result)
         if (result.status === 201) {
             dispatch(setAlert({
                 message: 'Запись добавлена',
