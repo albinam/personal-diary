@@ -61,8 +61,8 @@ function FilterBar() {
                    defaultValue={moment(dateSearchValue.dateTo).format("yyyy-MM-DD HH:mm")}
                    max={timestampToDatetimeInputString(Date.now())} name="dateTo"
                    type="datetime-local"/>
-            <button className="button-main" type="submit">Поиск</button>
-            <button className="button-clear" onClick={handleReset} type="reset">Сбросить</button>
+            <button className="filter-bar__button-submit button-main" type="submit">Поиск</button>
+            <button className="filter-bar__button-clear button-clear" onClick={handleReset} type="reset">Сбросить</button>
             {error && (
                 <div className="filter-bar__error">{error}</div>
             )}

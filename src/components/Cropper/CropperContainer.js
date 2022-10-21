@@ -24,7 +24,7 @@ function CropperContainer({src, getCroppedFile}) {
         <>
             {loading && (<Loader/>)}
             <div className="cropper">
-                <button className="button-main cropper-button" onClick={rotate}>Повернуть</button>
+                <button className="cropper__button button-main" onClick={rotate}>Повернуть</button>
                 <Cropper
                     src={src}
                     style={{height: 400, width: "100%"}}
@@ -35,7 +35,7 @@ function CropperContainer({src, getCroppedFile}) {
                     }}
                     ref={cropperRef}
                 />
-                <button className="button-main cropper-button-crop" onClick={handleClick}>Обрезать</button>
+                <button className="cropper__button-crop button-main" onClick={handleClick}>Обрезать</button>
             </div>
         </>
     );

@@ -50,7 +50,7 @@ function AddComment({props}) {
             {formik.touched.text && formik.errors.text && (
                 <div className="comment-form__error">{formik.errors.text}</div>
             )}
-            <button className="button-main" type="submit">Добавить</button>
+            <button className="comment-form__button button-main" type="submit">Добавить</button>
         </form>
     );
 }

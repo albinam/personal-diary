@@ -12,7 +12,7 @@ export const getRecords = (page,limit,title,date,sortByTitle,sortByDate) => {
         setRecordsLoadingStatus(true);
         setRecords(null);
         let url=`/record?_embed=comments&_page=${page}&_limit=${limit}`;
-        if(date.dateFrom && date.dateTo){
+        if(date?.dateFrom && date?.dateTo){
             url=url+`&date_gte=${date.dateFrom}&date_lte=${date.dateTo}`;
         }
         if(title){
@@ -81,6 +81,7 @@ export const postRecord = (data) => {
 export const deleteComment = (id) => {
     return async (dispatch) => {
         const result = await myAxios.delete(`/comments/${id}`);
+        console.log(result)
         if (result.status === 200) {
             dispatch(getRecords());
             dispatch(setAlert({

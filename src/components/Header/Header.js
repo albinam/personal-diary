@@ -20,8 +20,8 @@ function Header() {
                     <button className="button-main">Создать запись</button>
                 </a>
                 <div className="header__user__info">
-                    <img className="header__user__info__photo" src={user.avatar} alt="user avatar"/>
-                    <div className="header__user__info__name">{user.fullName}</div>
+                    <img className="header__user__photo" src={user.avatar} alt="user avatar"/>
+                    <div className="header__user__name">{user.fullName}</div>
                 </div>
             </div>
             <Alert/>

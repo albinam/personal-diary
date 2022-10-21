@@ -4,7 +4,6 @@ import Arrow from "../../assets/images/arrow.svg";
 import Comment from "../Comments/Comment/Comment";
 import AddComment from "./AddComment/AddComment";
 
-
 function Comments({props}) {
     const [displayComments, setDisplayComments] = useState(false);
 
@@ -13,18 +12,18 @@ function Comments({props}) {
             <div className="record__comments__title">Комментарии: {props.comments.length}</div>
             {displayComments ?
                 <div className="record__comments__controls">
-                    <img onClick={() => setDisplayComments(false)} className="record__comments__controls__icon-hide"
+                    <img onClick={() => setDisplayComments(false)} className="record__comments__icon-hide"
                          src={Arrow} alt="arrow"/>
                     <button onClick={() => setDisplayComments(false)}
-                            className="record__comments__controls__button">Скрыть
+                            className="record__comments__button">Скрыть
                     </button>
                 </div>
                 :
                 <div className="record__comments__controls">
-                    <img onClick={() => setDisplayComments(true)} className="record__comments__controls__icon-reveal"
+                    <img onClick={() => setDisplayComments(true)} className="record__comments__icon-reveal"
                          src={Arrow} alt="arrow"/>
                     <button onClick={() => setDisplayComments(true)}
-                            className="record__comments__controls__button">Показать
+                            className="record__comments__button">Показать
                     </button>
                 </div>
             }

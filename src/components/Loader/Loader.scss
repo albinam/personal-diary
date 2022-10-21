@@ -1,6 +1,6 @@
 @import "./src/assets/styles/variables";
 
-.loader {
+.loader__spinner {
   border: 8px solid $--c-button;
   border-top: 8px solid $--c-main;
   border-radius: 50%;
@@ -9,16 +9,20 @@
   animation: spin 2s linear infinite;
   margin-left: auto;
   margin-right: auto;
-  margin-top: calc(100vh/2);
+  margin-top: calc(100vh / 2);
   display: flex;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.loader__container{
+.loader {
   display: flex;
   height: 100%;
   width: 100%;

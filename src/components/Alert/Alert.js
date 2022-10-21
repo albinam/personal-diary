@@ -40,8 +40,8 @@ function Alert() {
                         {alert.message}
                     </div>
                     <div className="alert__buttons">
-                        <button onClick={responseYes} className="alert__buttons__button">Да</button>
-                        <button onClick={responseNo} className="alert__buttons__button">Нет</button>
+                        <button onClick={responseYes} className="alert__button">Да</button>
+                        <button onClick={responseNo} className="alert__button">Нет</button>
                     </div>
                 </div>
             </div>

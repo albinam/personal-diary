@@ -32,17 +32,18 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 16px;
+  }
 
-    &__button {
-      border: 1px solid $--c-text-secondary;
-      border-radius: 16px;
-      color: $--c-text;
-      background-color: $--c-text-secondary;
-      padding: 4px 8px;
+  &__button {
+    border: 1px solid $--c-text-secondary;
+    border-radius: 16px;
+    color: $--c-text;
+    background-color: $--c-text-secondary;
+    padding: 4px 8px;
+    cursor: pointer;
 
-      &:not(:first-child) {
-        margin-left: 8px;
-      }
+    &:not(:first-child) {
+      margin-left: 8px;
     }
   }
 
@@ -80,5 +81,4 @@
     top: 0;
     width: 100%;
   }
-
 }

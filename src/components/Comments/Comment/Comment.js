@@ -23,7 +23,7 @@ function Comment({props}) {
     }
 
     useEffect(() => {
-        if(alert.response==="yes" && alert.type==="QUESTION") {
+        if(alert.response==="yes" && alert.type==="QUESTION" && deletionId) {
             console.log(deletionId)
             dispatch(deleteComment(deletionId));
             dispatch(closeAlert());
