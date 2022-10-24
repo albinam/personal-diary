@@ -3,7 +3,7 @@ import RecordsList from "./pages/RecordsList/RecordsList";
 import {Provider} from "react-redux";
 import store from "./redux/store";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import RecordCreation from "./pages/RecordCreation/RecordCreation";
+import RecordFormPage from "./pages/RecordCreation/RecordFormPage";
 
 function App() {
     return (
@@ -12,8 +12,8 @@ function App() {
                 <BrowserRouter>
                     <Routes>
                        <Route exact path="/" element={<RecordsList/>}/>
-                        <Route path="/add-record" element={<RecordCreation/>}/>
-                        <Route path="/edit-record/:id" element={<RecordCreation/>}/>
+                        <Route path="/add-record" element={<RecordFormPage/>}/>
+                        <Route path="/edit-record/:id" element={<RecordFormPage/>}/>
                     </Routes>
                 </BrowserRouter>
             </Provider>

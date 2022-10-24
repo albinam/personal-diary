@@ -1,6 +1,6 @@
 @import "./src/assets/styles/variables";
 
-.record-creation__header {
+.record-form-page__header {
   display: flex;
   flex-direction: row;
   margin: 32px 128px;
@@ -35,13 +35,13 @@
 }
 
 @media (max-width: 768px) {
-  .record-creation__header__back {
+  .record-form-page__header__back {
     left: 64px;
   }
 }
 
 @media (max-width: 620px) {
-  .record-creation__header {
+  .record-form-page__header {
 
 
     &__back {
@@ -59,7 +59,7 @@
 }
 
 @media (max-width: 425px) {
-  .record-creation__header {
+  .record-form-page__header {
     justify-content: flex-end;
     margin-right: 16px;
 

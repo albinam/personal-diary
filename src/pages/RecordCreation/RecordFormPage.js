@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import Header from "../../components/Header/Header";
-import AddRecord from "../../components/AddRecord/AddRecord";
+import RecordForm from "../../components/RecordForm/RecordForm";
 import Arrow from "../../assets/images/arrow.svg";
-import "./RecordCreation.scss";
+import "./RecordFromPage.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {getRecord} from "../../utils/api";
 import Loader from "../../components/Loader/Loader";
 import {useParams} from "react-router-dom";
-import {setEditingPageLoading, setRecord, setRecordId, setRecordsLoadingStatus} from "../../redux/actions/actions";
+import {setEditingPageLoading, setRecordId} from "../../redux/actions/actions";
 
-function RecordCreation() {
+function RecordFormPage() {
     const editMode = useSelector(state => state.editRecord);
     const dispatch = useDispatch();
     const params = useParams();
@@ -28,20 +28,20 @@ function RecordCreation() {
         )
     } else {
         return (
-            <div className="record-creation">
+            <div className="record-form-page">
                 <Header/>
-                <div className="record-creation__header">
-                    <a href="/" className="record-creation__header__back">
-                        <img className="record-creation__header__back__icon" src={Arrow} alt="arrow"/>
-                        <div className="record-creation__header__back__label">Назад</div>
+                <div className="record-form-page__header">
+                    <a href="/" className="record-form-page__header__back">
+                        <img className="record-form-page__header__back__icon" src={Arrow} alt="arrow"/>
+                        <div className="record-form-page__header__back__label">Назад</div>
                     </a>
-                    {editMode.recordId ? <div className="record-creation__header__title">Редактирование записи</div> :
-                        <div className="record-creation__header__title">Новая запись</div>}
+                    {editMode.recordId ? <div className="record-form-page__header__title">Редактирование записи</div> :
+                        <div className="record-form-page__header__title">Новая запись</div>}
                 </div>
-                <AddRecord/>
+                <RecordForm/>
             </div>
         );
     }
 }
 
-export default RecordCreation;
+export default RecordFormPage;

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import "./AddRecord.scss";
+import "./RecordForm.scss";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 import moment from "moment";
@@ -10,7 +10,7 @@ import {convertBase64} from "../../utils/utils";
 import {useNavigate} from 'react-router-dom';
 
 
-function AddRecord() {
+function RecordForm() {
     const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png', 'image/svg'];
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
@@ -168,4 +168,4 @@ function AddRecord() {
 
 }
 
-export default AddRecord;
+export default RecordForm;
