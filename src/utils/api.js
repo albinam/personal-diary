@@ -25,18 +25,14 @@ export const getRecords = (page,limit,title,date,sortByTitle,sortByDate) => {
             url=url+`&title=${title}`;
         }
         if(sortByDate && sortByTitle){
-            console.log(1)
             url=url+`&_sort=title,date&_order=${sortByTitle},${sortByDate}`;
         }
         if (sortByDate && sortByTitle===""){
-            console.log(2)
             url=url+`&_sort=date&_order=${sortByDate}`;
         }
         if (sortByTitle && sortByDate===""){
-            console.log(3)
             url=url+`&_sort=title&_order=${sortByTitle}`;
         }
-        console.log(url)
         myAxios.get(url)
             .then((resp) => {
                 dispatch(setRecords(resp.data));
@@ -49,7 +45,6 @@ export const getRecords = (page,limit,title,date,sortByTitle,sortByDate) => {
 export const postComment = (data) => {
     return async (dispatch) => {
         const result = await myAxios.post(`/comments`, data);
-        console.log(result)
         if (result.status === 201) {
 
             dispatch(setAlert({
@@ -87,7 +82,6 @@ export const postRecord = (data) => {
 export const deleteComment = (id) => {
     return async (dispatch) => {
         const result = await myAxios.delete(`/comments/${id}`);
-        console.log(result)
         if (result.status === 200) {
             dispatch(getRecords());
             dispatch(setAlert({

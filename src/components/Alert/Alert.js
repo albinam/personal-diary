@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {closeAlert, setAlertResponse} from "../../redux/actions/actions";
 import CloseIcon from "../../assets/images/cancel.svg";
@@ -14,16 +14,21 @@ function Alert() {
     }
     const responseYes = () => {
         dispatch(setAlertResponse("yes"));
-        console.log(alert)
     }
     const responseNo = () => {
         dispatch(setAlertResponse("no"));
         dispatch(closeAlert());
-        console.log(alert)
     }
 
+    useEffect(() => {
+        if (alert?.isShown) {
+            setTimeout(() => {
+                dispatch(closeAlert());
+            }, 2000)
+        }
+    }, [alert?.isShown])
+
     if (alert.type === "SUCCESS") {
-        console.log(alert)
         return (<div className={alert?.isShown ? "alert__visible" : "alert"}>
                 <div className="alert__success">
                     <div className="alert__text">

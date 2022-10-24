@@ -19,8 +19,7 @@ function RecordCard({props}) {
             <img className="record-card__image" src={props.image.path}
                  alt="image"/>
         </div>
-    )
-        ;
+    );
 
 }
 
