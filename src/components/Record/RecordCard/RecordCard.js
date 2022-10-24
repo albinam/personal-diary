@@ -1,6 +1,7 @@
 import React from 'react';
 import "./RecordCard.scss";
 import moment from "moment";
+import {Link} from "react-router-dom";
 
 function RecordCard({props}) {
 
@@ -9,7 +10,8 @@ function RecordCard({props}) {
             <div className="record-card__text">
                 <div className="record-card__title">{props.title}</div>
                 <div className="record-card__date">{moment(props.date).format("DD/MM/YYYY HH:mm")}</div>
-                <a href="/" className="record-card__edit-button">Редактировать</a>
+                <Link className="record-card__edit-button"
+                      to={`/edit-record/${props.id}`}>Редактировать</Link>
                 <div className="record-card__body">
                     {props.text}
                 </div>
@@ -17,7 +19,8 @@ function RecordCard({props}) {
             <img className="record-card__image" src={props.image}
                  alt="arrow"/>
         </div>
-    );
+    )
+        ;
 
 }
 

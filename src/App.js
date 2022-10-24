@@ -13,6 +13,7 @@ function App() {
                     <Routes>
                        <Route exact path="/" element={<RecordsList/>}/>
                         <Route path="/add-record" element={<RecordCreation/>}/>
+                        <Route path="/edit-record/:id" element={<RecordCreation/>}/>
                     </Routes>
                 </BrowserRouter>
             </Provider>

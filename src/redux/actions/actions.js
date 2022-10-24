@@ -70,3 +70,21 @@ export function setSortByTitle(type) {
         payload:type
     }
 }
+export function setRecordId(id) {
+    return {
+        type: 'SET_RECORD_ID',
+        payload:id
+    }
+}
+export function setEditingPageLoading(status) {
+    return {
+        type: 'SET_EDITING_PAGE_LOADING',
+        payload:status
+    }
+}
+export function setRecord(record) {
+    return {
+        type: 'SET_RECORD',
+        payload:record
+    }
+}

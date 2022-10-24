@@ -4,3 +4,15 @@
 .cropper__button-crop{
   margin: 8px 0;
 }
+.cropper__body{
+  height: 100%;
+}
+
+@media (max-width: 450px) {
+  .cropper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

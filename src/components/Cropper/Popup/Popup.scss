@@ -10,8 +10,8 @@
 }
 .popup-body {
   position: absolute;
-  left: 30%;
-  right: 30%;
+  left: 25%;
+  right: 25%;
   top: 128px;
   text-align: center;
   margin: auto;
@@ -23,4 +23,28 @@
 
 .button-popup{
   margin-bottom: 8px;
+  margin-left: 0;
+}
+@media (max-width: 1024px) {
+  .popup-body {
+    left: 20%;
+    right: 20%;
+    top: 64px;
+  }
+}
+@media (max-width: 1024px) {
+  .popup-body {
+    left: 16%;
+    right: 16%;
+  }
+}
+@media (max-width: 450px) {
+  .popup-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    width: 100%;
+  }
 }

@@ -69,3 +69,10 @@
     }
   }
 }
+@media (max-width: 400px) {
+  .pagination-container {
+    .pagination-item{
+      margin: 0;
+    }
+  }
+}

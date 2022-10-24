@@ -9,7 +9,9 @@
   border: 1px $--c-button solid;
   background-color: $--c-button;
   cursor: pointer;
+  font-size: 1rem;
 }
+
 .button-main {
   background-color: $--c-main;
   color: $--c-text-secondary;
@@ -19,4 +21,14 @@
   height: 36px;
   cursor: pointer;
   width: fit-content;
+}
+
+@media (max-width: 450px) {
+  .button-main, .button-clear {
+    height: 24px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

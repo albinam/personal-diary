@@ -1,12 +1,12 @@
 @import "./src/assets/styles/variables";
 
-.record-creation__header{
+.record-creation__header {
   display: flex;
   flex-direction: row;
   margin: 32px 128px;
   justify-content: center;
 
-  &__back{
+  &__back {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -15,19 +15,56 @@
     text-decoration: none;
     color: $--c-text;
 
-    &__icon{
+    &__icon {
       height: 18px;
       transform: rotate(180deg);
       margin-right: 8px;
     }
-    &__label{
+
+    &__label {
       font-size: 1.4rem;
     }
-
   }
-  &__title{
+
+  &__title {
     font-size: 1.4rem;
     color: $--c-main;
     font-weight: 700;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .record-creation__header__back {
+    left: 64px;
+  }
+}
+
+@media (max-width: 620px) {
+  .record-creation__header {
+
+
+    &__back {
+      left: 16px;
+
+      &__label {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__title {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .record-creation__header {
+    justify-content: flex-end;
+    margin-right: 16px;
+
+    &__title {
+      text-align: right;
+    }
   }
 }

@@ -27,7 +27,7 @@ function CropperContainer({src, getCroppedFile}) {
                 <button className="cropper__button button-main" onClick={rotate}>Повернуть</button>
                 <Cropper
                     src={src}
-                    style={{height: 400, width: "100%"}}
+                    className="cropper__body"
                     initialAspectRatio={16 / 9}
                     guides={false}
                     ready={() => {

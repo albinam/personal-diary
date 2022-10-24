@@ -3,9 +3,11 @@ import "./Header.scss";
 import moment from "moment";
 import Alert from "../Alert/Alert";
 import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 function Header() {
     const user = useSelector(state => state.user);
+    const navigate = useNavigate();
 
     return (
         <header className="header">
@@ -16,9 +18,9 @@ function Header() {
                 </div>
             </a>
             <div className="header__user">
-                <a href="/add-record">
-                    <button className="button-main">Создать запись</button>
-                </a>
+
+                    <button onClick={()=>  {navigate("/add-record")}} className="header__user__button button-main">Создать запись</button>
+
                 <div className="header__user__info">
                     <img className="header__user__photo" src={user.avatar} alt="user avatar"/>
                     <div className="header__user__name">{user.fullName}</div>

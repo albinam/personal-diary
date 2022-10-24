@@ -1,5 +1,11 @@
 import axios from "axios";
-import {setAlert, setRecords, setRecordsLoadingStatus, setTotalRecordCount} from "../redux/actions/actions";
+import {
+    setAlert, setEditingPageLoading, setRecord,
+    setRecordId,
+    setRecords,
+    setRecordsLoadingStatus,
+    setTotalRecordCount
+} from "../redux/actions/actions";
 
 const myAxios = axios.create({
     baseURL: 'http://localhost:3000/',
@@ -96,4 +102,39 @@ export const deleteComment = (id) => {
             }));
         }
    }
+}
+
+export const getRecord = (id) => {
+    return async (dispatch) => {
+        const result = await myAxios.get(`/record/${id}`);
+        if (result.status === 200) {
+            dispatch(setEditingPageLoading(false));
+            dispatch(setRecord(result.data));
+        } else {
+            dispatch(setAlert({
+                message: 'Что-то пошло не так',
+                type: "ERROR",
+            }));
+        }
+    }
+}
+
+export const putRecord = (data) => {
+    return async (dispatch) => {
+        const result = await myAxios.put(`/record/${data.id}`, data);
+        if (result.status === 200) {
+            dispatch(setAlert({
+                message: 'Запись отредактирована',
+                type: "SUCCESS",
+            }));
+            dispatch(setRecordsLoadingStatus(true));
+            dispatch(setRecordId(null));
+            dispatch(setRecord({}));
+        } else {
+            dispatch(setAlert({
+                message: 'Что-то пошло не так',
+                type: "ERROR",
+            }));
+        }
+    }
 }

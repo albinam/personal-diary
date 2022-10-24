@@ -48,24 +48,31 @@ function FilterBar() {
 
     return (
         <form className="filter-bar" onSubmit={handleSubmit}>
-            <img className="filter-bar__icon" src={SearchIcon} alt="search icon"/>
-            <input className="filter-bar__input" defaultValue={titleSearchValue} name="title" type="text"
-                   placeholder="Введите название..."/>
-            <img className="filter-bar__icon" src={CalendarIcon} alt="search icon"/>
-            <input className="filter-bar__input"
-                   defaultValue={moment(dateSearchValue.dateFrom).format("yyyy-MM-DD HH:mm")}
-                   max={timestampToDatetimeInputString(Date.now())} name="dateFrom"
-                   type="datetime-local"/>
-            <div className="filter-bar__date-separator">--</div>
-            <input className="filter-bar__input"
-                   defaultValue={moment(dateSearchValue.dateTo).format("yyyy-MM-DD HH:mm")}
-                   max={timestampToDatetimeInputString(Date.now())} name="dateTo"
-                   type="datetime-local"/>
-            <button className="filter-bar__button-submit button-main" type="submit">Поиск</button>
-            <button className="filter-bar__button-clear button-clear" onClick={handleReset} type="reset">Сбросить</button>
-            {error && (
-                <div className="filter-bar__error">{error}</div>
-            )}
+            <div className="filter-bar__line">
+                <img className="filter-bar__icon" src={SearchIcon} alt="search icon"/>
+                <input className="filter-bar__input" defaultValue={titleSearchValue} name="title" type="text"
+                       placeholder="Введите название..."/>
+            </div>
+            <div className="filter-bar__line">
+                <img className="filter-bar__icon" src={CalendarIcon} alt="search icon"/>
+                <input className="filter-bar__input"
+                       defaultValue={moment(dateSearchValue.dateFrom).format("yyyy-MM-DD HH:mm")}
+                       max={timestampToDatetimeInputString(Date.now())} name="dateFrom"
+                       type="datetime-local"/>
+                <div className="filter-bar__date-separator">--</div>
+                <input className="filter-bar__input" id="second-date-input"
+                       defaultValue={moment(dateSearchValue.dateTo).format("yyyy-MM-DD HH:mm")}
+                       max={timestampToDatetimeInputString(Date.now())} name="dateTo"
+                       type="datetime-local"/>
+            </div>
+            <div className="filter-bar__line">
+                <button className="filter-bar__button-submit button-main" type="submit">Поиск</button>
+                <button className="filter-bar__button-clear button-clear" onClick={handleReset} type="reset">Сбросить
+                </button>
+                {error && (
+                    <div className="filter-bar__error">{error}</div>
+                )}
+            </div>
         </form>
     );
 }

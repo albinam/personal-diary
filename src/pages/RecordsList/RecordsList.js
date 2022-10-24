@@ -9,32 +9,26 @@ import {getRecords} from "../../utils/api";
 import Pagination from "../../components/Pagination/Pagination";
 import {setCurrentPage, setRecordsLoadingStatus} from "../../redux/actions/actions";
 import Loader from "../../components/Loader/Loader";
+import "./RecordsList.scss";
 
 function RecordsList() {
     const dispatch = useDispatch();
-    const records = useSelector(state => state.records.records);
-    const loading = useSelector(state => state.records.recordsLoadingStatus);
-    const currentPage = useSelector(state => state.records.currentPage);
-    const limit = useSelector(state => state.records.limit);
-    const totalRecordsCount = useSelector(state => state.records.totalRecordsCount);
-    const titleSearchValue = useSelector(state => state.records.titleSearchValue);
-    const dateSearchValue = useSelector(state => state.records.dateSearchValue);
-    const sortByDate = useSelector(state => state.records.sortByDate);
-    const sortByTitle = useSelector(state => state.records.sortByTitle);
+    const records = useSelector(state => state.records);
+    const filters = useSelector(state => state.filters);
 
     useEffect(() => {
-        if (loading) {
-            dispatch(getRecords(currentPage, limit, titleSearchValue, dateSearchValue, sortByTitle, sortByDate));
+        if (records.recordsLoadingStatus) {
+            dispatch(getRecords(records.currentPage, records.limit, filters.titleSearchValue, filters.dateSearchValue, filters.sortByTitle, filters.sortByDate));
         }
-    }, [loading])
+    }, [records.recordsLoadingStatus])
 
     useEffect(() => {
-        if (!loading) {
+        if (!records.recordsLoadingStatus) {
             dispatch(setRecordsLoadingStatus(true));
         }
-    }, [titleSearchValue, dateSearchValue, sortByTitle, sortByDate])
+    }, [filters.titleSearchValue, filters.dateSearchValue, filters.sortByTitle, filters.sortByDate])
 
-    if (loading) {
+    if (records.recordsLoadingStatus) {
         return (
             <Loader/>
         )
@@ -42,18 +36,20 @@ function RecordsList() {
         return (
             <div className="records-list-page">
                 <Header/>
-                <FilterBar/>
-                <SortBar/>
-                {records?.map(record => {
+                <div className="records-list-page__filters">
+                    <FilterBar/>
+                    <SortBar/>
+                </div>
+                {records.records?.map(record => {
                     return (
                         <Record props={record} key={record.id}/>
                     )
                 })}
                 <Pagination
                     className="records-list-page__pagination"
-                    currentPage={currentPage}
-                    totalCount={totalRecordsCount}
-                    pageSize={limit}
+                    currentPage={records.currentPage}
+                    totalCount={records.totalRecordsCount}
+                    pageSize={records.limit}
                     onPageChange={page => {
                         dispatch(setCurrentPage(page));
                         dispatch(setRecordsLoadingStatus(true));

@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Record.scss";
-import RecordCard from "../RecordCard/RecordCard";
+import RecordCard from "./RecordCard/RecordCard";
 import Comments from "../Comments/Comments";
 
 

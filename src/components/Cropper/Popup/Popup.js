@@ -2,7 +2,7 @@ import React from "react";
 import CropperContainer from "../CropperContainer";
 import "./Popup.scss"
 
-export default function Popup({ open, image, handleClose, getCroppedFile }) {
+export default function Popup({image, handleClose, getCroppedFile }) {
     return (
         <div className="popup-container">
             <div className="popup-body">

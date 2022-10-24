@@ -1,4 +1,4 @@
-@import "./src/assets/styles/variables";
+@import "../../../assets/styles/variables";
 
 .record-card {
   display: flex;
@@ -36,5 +36,33 @@
     border-radius: 16px;
     border: 5px solid $--c-text-secondary;
     margin: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .record-card__image{
+    max-height: 320px;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 660px) {
+  .record-card__image{
+    max-height: 240px;
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 475px) {
+  .record-card {
+    flex-direction: column;
+
+    &__image {
+      margin: 16px;
+    }
+
+    &__text{
+      margin: 16px;
+    }
   }
 }

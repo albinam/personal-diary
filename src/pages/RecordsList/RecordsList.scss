@@ -1,0 +1,16 @@
+.records-list-page__filters{
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1024px) {
+  .records-list-page__filters{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: fit-content;
+  }
+}
+@media (max-width: 660px) {
+  .records-list-page__filters {
+    flex-direction: column;
+  }
+}

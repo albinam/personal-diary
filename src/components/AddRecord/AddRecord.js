@@ -1,43 +1,61 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./AddRecord.scss";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 import moment from "moment";
 import {useDispatch, useSelector} from "react-redux";
-import {postRecord} from "../../utils/api";
+import {postRecord, putRecord} from "../../utils/api";
 import Popup from "../Cropper/Popup/Popup";
+import {convertBase64} from "../../utils/utils";
+import {useNavigate} from 'react-router-dom';
+
 
 function AddRecord() {
-    const SUPPORTED_FORMATS = ['jpg', 'jpeg', 'gif', 'png', 'svg'];
+    const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png', 'image/svg'];
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
     const [key, setKey] = useState("start");
     const [open, setOpen] = useState(false);
+    const editMode = useSelector(state => state.editRecord);
+    const navigate = useNavigate();
 
-    function onChange(e) {
+    async function onChange(e) {
         e.preventDefault();
-        let files;
-        if (e.dataTransfer) {
-            files = e.dataTransfer.files;
-        } else if (e.target) {
-            files = e.target.files;
-        }
-        if (files.length !== 0) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                formik.setFieldValue("image", reader.result);
-                setOpen(true);
-            }
-            reader.readAsDataURL(files[0]);
-        }
+        const file = e.target.files[0];
+        const base64 = await convertBase64(file);
+        const path = {
+            path: base64,
+            size: file.size,
+            originalName: file.name,
+            mimetype: file.type,
+        };
+        await formik.setFieldValue("image", path);
+        setOpen(true)
     }
 
-    const formik = useFormik({
-        initialValues: {
+    useEffect(() => {
+        if (editMode.recordId) {
+            formik.setFieldValue("image", editMode.record.image);
+        }
+    }, [editMode.recordId])
+
+    let initialValues;
+    if (editMode.recordId) {
+        initialValues = {
+            title: editMode.record.title,
+            text: editMode.record.text,
+            image: editMode.record.image
+        };
+    } else {
+        initialValues = {
             title: '',
             text: '',
             image: ''
-        },
+        };
+    }
+
+    const formik = useFormik({
+        initialValues: initialValues,
         validationSchema: Yup.object({
             title: Yup.string()
                 .required("Обязательное поле"),
@@ -48,7 +66,7 @@ function AddRecord() {
                 .test(
                     "fileFormat",
                     "Неподдерживаемый формат",
-                    value => value && SUPPORTED_FORMATS.includes(value.split(';')[0].split('/')[1])
+                    value => value && SUPPORTED_FORMATS.includes(value.mimetype)
                 )
         }),
         onSubmit: async function (values, actions) {
@@ -60,20 +78,32 @@ function AddRecord() {
                 }
             });
             setKey(new Date());
-            let record = {
-                title: values.title,
-                text: values.text,
-                userId: user.id,
-                date: moment().toISOString(),
-                image: values.image
+            if (editMode.recordId) {
+                let record = {
+                    title: values.title,
+                    text: values.text,
+                    userId: editMode.record.userId,
+                    date: editMode.record.date,
+                    id: editMode.record.id,
+                    image: values.image
+                }
+                dispatch(putRecord(record));
+            } else {
+                let record = {
+                    title: values.title,
+                    text: values.text,
+                    userId: user.id,
+                    date: moment().toISOString(),
+                    image: values.image
+                }
+                dispatch(postRecord(record));
             }
-            dispatch(postRecord(record));
+            navigate("/");
         }
     })
     return (
         <div className="add-record">
             <form onSubmit={formik.handleSubmit} className="add-record__form">
-
                 <label htmlFor="title" className="add-record__form__label">Название</label>
                 <input
                     type="text"
@@ -99,29 +129,39 @@ function AddRecord() {
                     <div className="add-record__form__error">{formik.errors.text}</div>
                 )}
                 <label htmlFor="image" className="add-record__form__label">Изображение</label>
-                <input
-                    type="file"
-                    onBlur={formik.handleBlur}
-                    onChange={(event) =>
-                        onChange(event)
-                    }
-                    id="image"
-                    className="add-record__form__input-image"
-                    alt="image"
-                    key={key}
-                />
+                <div className="add-record__form__input-image__line">
+                    <input
+                        type="file"
+                        onBlur={formik.handleBlur}
+                        onChange={(event) =>
+                            onChange(event)
+                        }
+                        id="image"
+                        className="add-record__form__input-image"
+                        alt="image"
+                        key={key}
+                    />
+                    <label
+                        htmlFor="image">{formik.values.image.originalName ? formik.values.image.originalName : "Файл не выбран"}</label>
+                </div>
                 {formik.touched.image && formik.errors.image && (
                     <div className="add-record__form__error">{formik.errors.image}</div>
                 )}
                 {open &&
-                    (<Popup handleClose={() => setOpen(false)} image={formik.values.image}
+                    (<Popup handleClose={() => setOpen(false)} image={formik.values.image.path}
                             getCroppedFile={(image) => {
-                                formik.setFieldValue("image", image);
+                                const path = {
+                                    path: image,
+                                    size: formik.values.image.size,
+                                    originalName: formik.values.image.originalName,
+                                    mimetype: formik.values.image.mimetype,
+                                };
+                                formik.setFieldValue("image", path);
                                 setOpen(false);
                             }}
                     />)
                 }
-                <button className="add-record__form__button" type="submit">Добавить</button>
+                <button className="add-record__form__button" type="submit">Сохранить</button>
             </form>
         </div>
     );

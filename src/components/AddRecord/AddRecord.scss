@@ -10,6 +10,7 @@
     font-size: 1.4rem;
     margin: 16px auto;
   }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -43,6 +44,7 @@
         height: 20px;
         cursor: pointer;
         font-family: 'Montserrat', sans-serif;
+        font-size: 0;
       }
     }
 
@@ -53,6 +55,9 @@
       border-radius: 16px;
       height: 20px;
       cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
     }
 
     &__input:focus-visible {
@@ -94,4 +99,14 @@
 }
 .img-preview {
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .add-record__form {
+    margin: 16px 64px;
+  }
+}
+@media (max-width: 620px) {
+  .add-record__form {
+    margin: 16px;
+  }
 }

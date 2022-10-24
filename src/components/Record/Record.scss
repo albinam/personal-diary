@@ -7,5 +7,9 @@
   justify-content: space-between;
   border-radius: 16px;
   margin: 16px 128px;
-
+}
+@media (max-width: 1024px) {
+  .record {
+    margin: 4px 4px;
+  }
 }
