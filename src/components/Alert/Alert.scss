@@ -66,11 +66,7 @@
   }
 
   &__icon {
-    cursor: pointer;
-    margin-right: 10px;
     height: 16px;
-    position: fixed;
-    right: 16px;
   }
 
   &__visible {
@@ -80,5 +76,14 @@
     left: 0;
     top: 0;
     width: 100%;
+  }
+
+  &__icon-container {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 10px;
+    position: fixed;
+    right: 16px;
   }
 }

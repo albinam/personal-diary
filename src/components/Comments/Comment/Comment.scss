@@ -50,7 +50,14 @@
   &__delete {
     height: 16px;
     cursor: pointer;
-    margin-left: auto;
+  }
+
+  &__delete-button{
     padding-right: 16px;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
   }
 }
